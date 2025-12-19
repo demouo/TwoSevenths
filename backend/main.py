@@ -8,7 +8,7 @@ from backend.database import init_database, migrate_from_json
 
 # 创建FastAPI应用
 app = FastAPI(
-    title="二分之七 / TwoSevenths",
+    title="七分之二 / TwoSevenths",
     description="工作生活平衡互动展示项目",
     version="1.0.0"
 )
