@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from datetime import datetime
+from datetime import datetime, timezone
 
 from backend.models import VoteRequest, VoteResponse, StatsResponse, OptionStats, TimelineItem
 from backend.database import add_vote, get_vote_stats
@@ -11,7 +11,7 @@ router = APIRouter()
 async def vote(vote_request: VoteRequest):
     """提交投票"""
     try:
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(timezone.utc).isoformat()
         success = add_vote(vote_request.option, timestamp)
 
         if success:

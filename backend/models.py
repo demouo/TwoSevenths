@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Literal
-from datetime import datetime
+from datetime import datetime, timezone
 from uuid import uuid4
 
 
@@ -55,7 +55,7 @@ class Message(BaseModel):
     content: str
     option: str
     likes: int = 0
-    timestamp: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
 class MessagesResponse(BaseModel):
