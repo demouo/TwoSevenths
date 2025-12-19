@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: twosevenths-app
+    ports:
+      - "8000:8000"
+    volumes:
+      # 持久化数据目录
+      - ./backend/data:/app/backend/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/stats"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - twosevenths-network
+
+networks:
+  twosevenths-network:
+    driver: bridge

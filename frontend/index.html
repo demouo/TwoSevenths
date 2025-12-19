@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二分之七 / TwoSevenths</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1 class="title">二分之七 / TwoSevenths</h1>
+            <p class="subtitle">我们都在过着每周要上班5天，只期待2天的周末</p>
+            <p class="subtitle">生命的长度被缩减到了 2/7</p>
+        </header>
+
+        <!-- 投票区域 -->
+        <section class="vote-section">
+            <h2>你正在过着怎样的生活？</h2>
+            <div class="vote-options">
+                <button class="vote-btn" data-option="double">
+                    <span class="emoji">😊</span>
+                    <span class="label">双休</span>
+                    <span class="desc">周六日休息</span>
+                </button>
+                <button class="vote-btn" data-option="single">
+                    <span class="emoji">😢</span>
+                    <span class="label">单休</span>
+                    <span class="desc">只休一天</span>
+                </button>
+                <button class="vote-btn" data-option="alternate">
+                    <span class="emoji">😰</span>
+                    <span class="label">大小周</span>
+                    <span class="desc">隔周休息</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 统计展示区域 -->
+        <section class="stats-section">
+            <h2>当前统计</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-votes">0</div>
+                    <div class="stat-label">总投票数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="double-percent">0%</div>
+                    <div class="stat-label">双休占比</div>
+                    <div class="stat-count" id="double-count">0人</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="single-percent">0%</div>
+                    <div class="stat-label">单休占比</div>
+                    <div class="stat-count" id="single-count">0人</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="alternate-percent">0%</div>
+                    <div class="stat-label">大小周占比</div>
+                    <div class="stat-count" id="alternate-count">0人</div>
+                </div>
+            </div>
+
+            <!-- 图表 -->
+            <div class="chart-container">
+                <canvas id="statsChart"></canvas>
+            </div>
+        </section>
+
+        <!-- 弹幕区域 -->
+        <section class="danmaku-section">
+            <h2>大家的心声</h2>
+
+            <!-- 发送弹幕 -->
+            <div class="danmaku-input-area">
+                <input
+                    type="text"
+                    id="danmaku-input"
+                    placeholder="说说你的感受..."
+                    maxlength="200"
+                />
+                <button id="send-danmaku-btn">发送</button>
+            </div>
+
+            <!-- 弹幕显示区域 -->
+            <div class="danmaku-display" id="danmaku-display">
+                <!-- 弹幕会动态插入这里 -->
+            </div>
+
+            <!-- 弹幕列表 -->
+            <div class="danmaku-list" id="danmaku-list">
+                <!-- 弹幕列表会动态插入这里 -->
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>让我们一起思考工作与生活的平衡</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
