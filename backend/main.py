@@ -16,7 +16,12 @@ app = FastAPI(
 # 配置CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 生产环境应该指定具体域名
+    allow_origins=[
+        "https://demouo.github.io",      # GitHub Pages部署域名
+        "http://localhost:8000",          # 本地开发
+        "http://127.0.0.1:8000",          # 本地开发
+        "http://47.121.222.197:8000",     # 后端服务器自身
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
