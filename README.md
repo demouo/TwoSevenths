@@ -154,6 +154,45 @@ TwoSevenths/
 
 ## 快速开始
 
+### 在线体验
+
+- **前端演示**: https://demouo.github.io/TwoSevenths
+- **需要配置后端**: 前端已部署，但需要自行部署后端API服务才能完整使用
+
+> 注意：GitHub Pages只能托管静态前端，后端API需要单独部署。
+
+### 完整部署（前后端分离）
+
+#### 前端部署（自动）
+
+前端会自动部署到 GitHub Pages。如需修改后端API地址：
+
+1. 编辑 `frontend/config.js`：
+```javascript
+const API_CONFIG = {
+    baseURL: 'https://your-backend-api.com'  // 替换为你的后端地址
+};
+```
+
+2. 提交并推送：
+```bash
+git commit -am "Update backend API URL"
+git push origin main
+```
+
+#### 后端部署
+
+后端可以部署到你自己的服务器。详细步骤请参考：
+
+📖 **[后端部署完整指南](BACKEND_DEPLOY.md)**
+
+快速启动（Docker）：
+```bash
+git clone https://github.com/demouo/TwoSevenths.git
+cd TwoSevenths
+docker-compose up -d
+```
+
 ### 方式一：本地运行
 
 #### 1. 安装依赖
@@ -180,7 +219,7 @@ uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 - API文档: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 
-### 方式二：Docker部署（推荐）
+### 方式二：Docker部署（本地开发）
 
 #### 1. 使用Docker Compose（最简单）
 
@@ -209,7 +248,9 @@ docker run -d \
   twosevenths:latest
 ```
 
-更多部署选项和配置请参考 [DEPLOY.md](DEPLOY.md)。
+更多部署选项和配置请参考：
+- **本地/Docker部署**: [DEPLOY.md](DEPLOY.md)
+- **生产服务器部署**: [BACKEND_DEPLOY.md](BACKEND_DEPLOY.md)
 
 ## 开发计划
 
@@ -223,6 +264,13 @@ docker run -d \
 - [ ] 生产环境部署
 
 ## 特性说明
+
+### 前后端分离架构
+
+项目采用前后端分离设计：
+- **前端**: 自动部署到 GitHub Pages (https://demouo.github.io/TwoSevenths)
+- **后端**: 需单独部署到服务器
+- **配置**: 通过 `frontend/config.js` 连接前后端
 
 ### 数据持久化
 

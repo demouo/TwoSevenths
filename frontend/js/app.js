@@ -1,5 +1,5 @@
-// API基础URL
-const API_BASE = '/api';
+// API基础URL - 从配置文件读取
+const API_BASE = (typeof API_CONFIG !== 'undefined' ? API_CONFIG.baseURL : '') + '/api';
 
 // 当前用户选择的选项
 let currentOption = null;
